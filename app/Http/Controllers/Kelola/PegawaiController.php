@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Kelola;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\PegawaiUpdateRequest;
 use App\Http\Resources\Kelola\PegawaiResource;
 use App\Models\Pegawai;

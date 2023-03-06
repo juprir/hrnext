@@ -19,6 +19,8 @@ class UserSeeder extends Seeder
                 'email' => $row['email'],
                 'password' => $row['password'],
             ]);
+
+            $user->assignRole($row['role']);
         });
     }
 }

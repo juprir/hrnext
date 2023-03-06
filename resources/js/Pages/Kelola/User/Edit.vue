@@ -70,7 +70,7 @@ const form = useForm({
                   <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">Tersimpan.</p>
                 </Transition>
 
-                <SecondaryButton @click="router.visit(route('kelola.pegawai.index'))">Batal</SecondaryButton>
+                <SecondaryButton @click="router.visit(route('kelola.user.index'))">Batal</SecondaryButton>
               </div>
             </form>
           </div>

@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, usePage } from '@inertiajs/vue3';
 import { PencilSquareIcon } from '@heroicons/vue/24/solid';
 
 defineProps({
@@ -60,7 +60,7 @@ defineProps({
                           {{ user.jabatan }}
                         </td>
                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-900">
-                          <span v-for="role in user.roles">{{ role.name }}</span>
+                          <p v-for="role in user.roles">{{ role.name }}</p>
                         </td>
                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                           <Link :href="route('kelola.user.edit', user.id)">

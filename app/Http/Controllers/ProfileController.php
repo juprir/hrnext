@@ -27,7 +27,7 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Pegawai $pegawai, ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
 

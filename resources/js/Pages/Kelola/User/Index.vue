@@ -10,16 +10,16 @@ defineProps({
 </script>
 
 <template>
-  <Head title="Pegawai" />
+  <Head title="Pengguna" />
 
   <AuthenticatedLayout>
     <template #header>
       <div class="md:flex md:items-center md:justify-between">
         <div class="min-w-0 flex-1">
-          <h2 class="font-semibold text-xl text-gray-800 leading-tight">Pegawai</h2>
+          <h2 class="font-semibold text-xl text-gray-800 leading-tight">Pengguna</h2>
         </div>
         <div class="mt-4 flex md:mt-0 md:ml-4">
-          <Link :href="route('kelola.pegawai.create')"
+          <Link :href="route('kelola.user.create')"
             class="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           Tambah
           </Link>
@@ -43,38 +43,27 @@ defineProps({
                           Nama</th>
                         <th scope="col"
                           class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
-                          NIP/NRP</th>
-                        <th scope="col"
-                          class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
-                          Pangkat/Gol.</th>
-                        <th scope="col"
-                          class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
                           Jabatan</th>
                         <th scope="col"
                           class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
-                          ID Sidik Jari</th>
+                          Peran</th>
                         <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
                           <span class="sr-only">Edit</span>
                         </th>
                       </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200 bg-white">
-                      <tr v-for="pegawai in data.data" :key="pegawai.id">
+                      <tr v-for="user in data.data" :key="user.id">
                         <td class="whitespace-nowrap px-2 py-2 text-sm font-medium text-gray-900">
-                          {{ pegawai.nama }}</td>
+                          {{ user.nama }}</td>
                         <td class="whitespace-nowrap px-2 py-2 text-sm font-medium text-gray-900">
-                          {{ pegawai.nip }}
+                          {{ user.jabatan }}
                         </td>
                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-900">
-                          {{ pegawai.pangkat }}
-                        </td>
-                        <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-900">
-                          {{ pegawai.jabatan }}
+                          <span v-for="role in user.roles">{{ role.name }}</span>
                         </td>
                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
-                          {{ pegawai.id_sidik_jari }}</td>
-                        <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
-                          <Link :href="route('kelola.pegawai.edit', pegawai.id)">
+                          <Link :href="route('kelola.user.edit', user.id)">
                           <PencilSquareIcon class="h-4 w-4 flex-shrink-0 self-center text-blue-600" aria-hidden="true" />
                           </Link>
                         </td>

@@ -31,6 +31,11 @@ class PegawaiController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return 'TODO';
+    }
+
     public function edit(Pegawai $pegawai)
     {
         $pegawai = new PegawaiResource(

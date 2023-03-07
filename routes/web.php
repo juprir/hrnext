@@ -20,14 +20,14 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 require __DIR__.'/dev.php';
 
-Route::prefix('sub')->as('bawahan.')->middleware(['auth:sanctum'])->group(
+Route::prefix('sub')->as('bawahan.')->middleware(['auth'])->group(
     base_path('routes/resources/bawahan.php'),
 );
 
-Route::prefix('m')->as('kelola.')->middleware(['auth:sanctum'])->group(
+Route::prefix('m')->as('kelola.')->middleware(['auth'])->group(
     base_path('routes/resources/kelola.php'),
 );
 
-Route::prefix('s')->as('pengaturan.')->middleware(['auth:sanctum'])->group(
+Route::prefix('s')->as('pengaturan.')->middleware(['auth'])->group(
     base_path('routes/resources/pengaturan.php'),
 );

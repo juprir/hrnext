@@ -53,7 +53,7 @@ const showingNavigationDropdown = ref(false);
                   <template #content>
                     <DropdownLink :href="route('kelola.user.index')"> Pengguna </DropdownLink>
                     <DropdownLink :href="route('kelola.pegawai.index')"> Pegawai </DropdownLink>
-                    <DropdownLink :href="route('profile.edit')"> Cuti </DropdownLink>
+                    <DropdownLink :href="route('kelola.peran.index')"> Peran </DropdownLink>
                     <DropdownLink :href="route('profile.edit')"> Jabatan </DropdownLink>
                     <DropdownLink :href="route('profile.edit')"> Pangkat </DropdownLink>
                     <DropdownLink :href="route('profile.edit')"> Presensi </DropdownLink>

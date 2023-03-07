@@ -55,10 +55,10 @@ const showingNavigationDropdown = ref(false);
                     <DropdownLink :href="route('kelola.pegawai.index')"> Pegawai </DropdownLink>
                     <DropdownLink :href="route('kelola.peran.index')"> Peran </DropdownLink>
                     <DropdownLink :href="route('kelola.jabatan.index')"> Jabatan </DropdownLink>
-                    <DropdownLink :href="route('profile.edit')"> Pangkat </DropdownLink>
-                    <DropdownLink :href="route('profile.edit')"> Presensi </DropdownLink>
-                    <DropdownLink :href="route('profile.edit')"> Role dan permission </DropdownLink>
-                    <DropdownLink :href="route('profile.edit')"> Unit organisasi </DropdownLink>
+                    <DropdownLink :href="route('kelola.pangkat.index')"> Pangkat </DropdownLink>
+                    <DropdownLink :href="route('kelola.unor.index')"> Unit Organisasi </DropdownLink>
+                    <DropdownLink :href="route('kelola.cuti.index')"> Ketentuan Cuti </DropdownLink>
+                    <DropdownLink :href="route('kelola.kehadiran.index')"> Ketentuan Kehadiran </DropdownLink>
                   </template>
                 </Dropdown>
               </div>

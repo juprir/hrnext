@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\Kelola\CutiController;
 use App\Http\Controllers\Kelola\JabatanController;
+use App\Http\Controllers\Kelola\KehadiranController;
+use App\Http\Controllers\Kelola\PangkatController;
 use App\Http\Controllers\Kelola\PegawaiController;
 use App\Http\Controllers\Kelola\RoleController;
+use App\Http\Controllers\Kelola\UnitOrganisasiController;
 use App\Http\Controllers\Kelola\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +29,7 @@ Route::get('/peran/{peran}/edit', [RoleController::class, 'edit'])->name('peran.
 Route::patch('/peran/{peran}', [RoleController::class, 'update'])->name('peran.update');
 
 Route::resource('jabatan', JabatanController::class);
+Route::resource('pangkat', PangkatController::class);
+Route::resource('unor', UnitOrganisasiController::class);
+Route::resource('cuti', CutiController::class);
+Route::resource('kehadiran', KehadiranController::class);

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Kelola\JabatanController;
 use App\Http\Controllers\Kelola\PegawaiController;
 use App\Http\Controllers\Kelola\RoleController;
 use App\Http\Controllers\Kelola\UserController;
@@ -22,3 +23,5 @@ Route::get('/peran/create', [RoleController::class, 'create'])->name('peran.crea
 Route::get('/peran/{peran}', [RoleController::class, 'show'])->name('peran.show');
 Route::get('/peran/{peran}/edit', [RoleController::class, 'edit'])->name('peran.edit');
 Route::patch('/peran/{peran}', [RoleController::class, 'update'])->name('peran.update');
+
+Route::resource('jabatan', JabatanController::class);

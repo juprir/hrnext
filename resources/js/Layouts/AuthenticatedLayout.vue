@@ -31,6 +31,9 @@ const showingNavigationDropdown = ref(false);
                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                   Dashboard
                 </NavLink>
+                <NavLink :href="route('presensi.index')" :active="route().current('presensi.index')">
+                  Presensi
+                </NavLink>
               </div>
               <div class="relative sm:flex sm:items-center sm:ml-6">
                 <Dropdown align="left" width="48">

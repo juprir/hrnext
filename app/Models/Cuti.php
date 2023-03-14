@@ -19,4 +19,14 @@ class Cuti extends Model
         'tanggal_selesai' => 'date',
         'status' => StatusCuti::class,
     ];
+
+    public function jenisCuti()
+    {
+        return $this->belongsTo(JenisCuti::class, 'jenis_cuti_id');
+    }
+
+    public function alasanCuti()
+    {
+        return $this->belongsTo(AlasanCuti::class, 'alasan_cuti_id');
+    }
 }

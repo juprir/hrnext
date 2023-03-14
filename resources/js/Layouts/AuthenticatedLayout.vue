@@ -34,6 +34,12 @@ const showingNavigationDropdown = ref(false);
                 <NavLink :href="route('presensi.index')" :active="route().current('presensi.index')">
                   Presensi
                 </NavLink>
+                <NavLink :href="route('cuti.index')" :active="route().current('cuti.index')">
+                  Cuti
+                </NavLink>
+                <NavLink :href="route('bawahan.presensi.index')" :active="route().current('bawahan.presensi.index')">
+                  Bawahan
+                </NavLink>
               </div>
               <div class="relative sm:flex sm:items-center sm:ml-6">
                 <Dropdown align="left" width="48">

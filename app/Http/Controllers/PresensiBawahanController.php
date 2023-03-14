@@ -2,16 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Actions\ListIdBawahan;
+use App\Models\Pegawai;
+use App\Models\Presensi;
+use Illuminate\Support\Facades\Auth;
 
 class PresensiBawahanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(ListIdBawahan $listIdBawahan)
     {
-        //
+        $pegawai = Auth::user()->pegawai;
+
+        if (! $pegawai->unit_organisasi_id_sekarang) {
+            return redirect()->route('dashboard');
+        }
+
+        $idBawahan = $listIdBawahan->handle($pegawai->unit_organisasi_id_sekarang, $pegawai->id);
+
+        if (! count($idBawahan)) {
+            return redirect()->route('dashboard');
+        }
+
+        $bawahan = Pegawai::find($idBawahan)->sortBy('nama');
+
+        $list = $bawahan->map(function ($item) {
+            $match = Presensi::query()
+                ->where('pegawai_id', $item->id)
+                ->whereDate('tanggal', today())
+                ->first();
+
+            return [
+                'id' => $item->id,
+                'nama' => $item->nama,
+                'jabatan' => $item->nama_jabatan_sekarang,
+                'waktu_datang' => $match ? $match->waktu_datang_string : '',
+                'waktu_pulang' => $match ? $match->waktu_pulang_string : '',
+                'kategori' => $match ? $match->nama_kategori : '',
+            ];
+        });
+
+        return inertia('Bawahan/Presensi', [
+            'list' => $list,
+        ]);
     }
 
     /**

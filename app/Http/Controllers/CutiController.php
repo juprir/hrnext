@@ -25,6 +25,6 @@ class CutiController extends Controller
 
     public function create()
     {
-        return 'TODO';
+        return inertia('Cuti/Create');
     }
 }
